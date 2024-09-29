@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Validation Form</title>
+    <link rel="stylesheet" href="vf.css">
+</head>
+<body>
+    <div class="container">
+        <h2>VALIDATION FORM</h2>
+        <form action="/submit" method="post" novalidate>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required minlength="2" maxlength="50" placeholder="Enter your name">
+                <span class="error-message" style="display: none;">Please enter a valid name (2-50 characters).</span>
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <div>
+                    <label><input type="radio" name="gender" value="male" required> Male</label>
+                    <label><input type="radio" name="gender" value="female"> Female</label>
+                </div>
+                <span class="error-message" style="display: none;">Please select your gender.</span>
+            </div>
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" id="age" name="age" required min="1" max="120" placeholder="Enter your age">
+                <span class="error-message" style="display: none;">Please enter a valid age (09-19).</span>
+            </div>
+            <div class="form-group">
+                <label for="bloodgroup">Blood Group</label>
+                <input type="text" id="bloodgroup" name="bloodgroup" required pattern="^(A|B|AB|O)[+-]$" placeholder="e.g. A+, B-, AB+">
+                <span class="error-message" style="display: none;">Please enter a valid blood group (A+, B-, AB+, O+,O-,AB-).</span>
+                        <div class="form-group">
+                            <label for="fatherName">Father's Name</label>
+                            <input type="text" id="fatherName" name="fatherName" required minlength="09" maxlength="19" placeholder="Enter father's name">
+                            <span class="error-message" style="display: none;">Please enter a valid name (09-19 characters).</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="fatherOccupation">Father's Occupation</label>
+                            <input type="text" id="fatherOccupation" name="fatherOccupation" required minlength="2" maxlength="50" placeholder="Enter father's occupation">
+                            <span class="error-message" style="display: none;">Please enter a valid occupation (09-19 characters).</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="motherName">Mother's Name</label>
+                            <input type="text" id="motherName" name="motherName" required minlength="2" maxlength="50" placeholder="Enter mother's name">
+                            <span class="error-message" style="display: none;">Please enter a valid name (09-19characters).</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="motherOccupation">Mother's Occupation</label>
+                            <input type="text" id="motherOccupation" name="motherOccupation" required minlength="2" maxlength="50" placeholder="Enter mother's occupation">
+                            <span class="error-message" style="display: none;">Please enter a valid occupation (09-19characters).</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="annualIncome">Annual Income</label>
+                            <input type="text" id="annualIncome" name="annualIncome" required pattern="^\d{1,8}(\.\d{1,2})?$" placeholder="Enter annual income (e.g., 50000 or 50000.00)">
+                            <span class="error-message" style="display: none;">Please enter a valid income (up to 8 digits, optional 2 decimal places).</span>
+                        </div>
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+
+    <script>
+        const form = document.querySelector('form');
+
+        form.addEventListener('submit', function (event) {
+            let valid = true;
+            const nameInput = document.getElementById('name');
+            const nameError = nameInput.nextElementSibling;
+            if (nameInput.validity.valid) {
+                nameError.style.display = 'none';
+            } else {
+                valid = false;
+                nameError.style.display = 'block';
+            }
+            const genderInputs = document.getElementsByName('gender');
+            const genderError = genderInputs[0].parentNode.nextElementSibling;
+            if (Array.from(genderInputs).some(input => input.checked)) {
+                genderError.style.display = 'none';
+            } else {
+                valid = false;
+                genderError.style.display = 'block';
+            }
+            const ageInput = document.getElementById('age');
+            const ageError = ageInput.nextElementSibling;
+            if (ageInput.validity.valid) {
+                ageError.style.display = 'none';
+            } else {
+                valid = false;
+                ageError.style.display = 'block';
+            }
+            const bloodgroupInput = document.getElementById('bloodgroup');
+            const bloodgroupError = bloodgroupInput.nextElementSibling;
+            if (bloodgroupInput.validity.valid) {
+                bloodgroupError.style.display = 'none';
+            } else {
+                valid = false;
+                bloodgroupError.style.display = 'block';
+            }
+
+            if (!valid) {
+                event.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>

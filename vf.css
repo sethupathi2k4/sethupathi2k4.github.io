@@ -1,0 +1,95 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: url(Background\ \(1\).jpeg.jpg);
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+/* Container styles */
+.container {
+    max-width: 600px;
+    margin: 40px auto; /* Centering the container */
+    padding: 30px;
+    background: #ffffff00; /* White background */
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1); /* Shadow for depth */
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 24px;
+    color: #ffffff; /* Blue color for the heading */
+}
+
+/* Form styles */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Input and textarea styles */
+input[type="text"],
+input[type="number"],
+input[type="radio"],
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    transition: border-color 0.3s, box-shadow 0.3s; /* Transition for glow effect */
+}
+
+/* Glowing effect on focus */
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="radio"]:focus,
+textarea:focus {
+    border-color: #4A90E2; /* Highlight border */
+    outline: none; /* Remove outline */
+    box-shadow: 0 0 8px rgba(74, 144, 226, 0.7), 0 0 16px rgba(74, 144, 226, 0.5); /* Glowing effect */
+}
+
+/* Radio button styles */
+input[type="radio"] {
+    width: auto; /* Keep radio buttons compact */
+}
+
+/* Button styles */
+button {
+    width: 100%;
+    padding: 12px;
+    background: #4A90E2; /* Blue background for the button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s, box-shadow 0.3s; /* Transition for glow effect */
+}
+
+/* Glowing effect on button hover */
+button:hover {
+    background: #357ABD; /* Darker blue on hover */
+    box-shadow: 0 0 8px rgba(74, 144, 226, 0.7), 0 0 16px rgba(74, 144, 226, 0.5); /* Glowing effect */
+}
+
+/* Error message styles */
+.error-message {
+    color: red;
+    font-size: 0.9em;
+    display: block; /* Ensure error messages are displayed as blocks */
+    margin-top: 5px; /* Space above the error message */
+}
